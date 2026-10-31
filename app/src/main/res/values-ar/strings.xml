@@ -21,7 +21,7 @@
     <string name="settings_title">خليه شبه مختفي</string>
     <string name="opacity_label">شفافية الزر</string>
     <string name="size_label">حجم الزر</string>
-    <string name="privacy_note">كل حاجة على الموبايل · من غير إنترنت أو تتبّع. التطبيق يفحص حدود منطقة التمرير فقط من غير حفظ النصوص. الصور في Pictures/FloatShot.</string>
+    <string name="privacy_note">الصور بتفضل على موبايلك من غير تتبّع. الإنترنت بيُستخدم فقط لفحص إصدارات GitHub العامة لما تطلب أو تفعّل الفحص التلقائي. مفيش صور أو نصوص بتترفع. الصور في Pictures/FloatShot.</string>
     <string name="limitations_note">التصوير المطوّل أنسب للصفحات اللي بتتحرك لفوق وتحت. بعض التطبيقات والشاشات المحمية مش هتسمح بالتصوير.</string>
     <string name="long_alignment_failed">اللقطات مش متطابقة بثقة، فمش هنحفظ صورة طويلة فيها عيوب.</string>
     <string name="long_moving_content">الصفحة لسه بتتحرك أو فيها أنيميشن. جرّب تاني بعد ما تثبت.</string>
@@ -32,4 +32,19 @@
     <string name="long_not_available">الصفحة متحركتش — اتحفظت لقطة عادية</string>
     <string name="busy">في تصوير شغّال بالفعل</string>
     <string name="bubble_description">زر FloatShot: ضغطة للتصوير، ضغطة مطوّلة لتصوير طويل، اسحب عشان تحرّكه</string>
+    <string name="updates_title">تحديثات التطبيق</string>
+    <string name="updates_installed_placeholder">الإصدار المثبّت</string>
+    <string name="updates_installed_version">الإصدار المثبّت: %1$s</string>
+    <string name="updates_auto">افحص التحديثات تلقائيًا عند فتح التطبيق</string>
+    <string name="updates_not_checked">لسه متفحصش</string>
+    <string name="updates_checking">بنفحص التحديثات…</string>
+    <string name="updates_check_button">التحقق من التحديثات</string>
+    <string name="updates_no_releases">مفيش إصدارات منشورة لحد دلوقتي</string>
+    <string name="updates_available">فيه إصدار جديد %1$s متاح</string>
+    <string name="updates_up_to_date">أنت على أحدث إصدار (%1$s)</string>
+    <string name="updates_failed">معرفناش نفحص التحديثات. اتأكد من الإنترنت وجرب تاني.</string>
+    <string name="updates_invalid_version">رقم أحدث إصدار مش معروف للتطبيق.</string>
+    <string name="updates_no_browser">مفيش متصفح متاح لفتح التحديث.</string>
+    <string name="updates_open_release">افتح صفحة التحديث على GitHub</string>
+    <string name="updates_privacy">الفحص بيستخدم GitHub Releases عبر HTTPS فقط، وبحد أقصى مرة كل ٢٤ ساعة عند فتح التطبيق. تقدر توقف الفحص التلقائي في أي وقت، والتثبيت باختيارك.</string>
 </resources>

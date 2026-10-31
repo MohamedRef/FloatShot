@@ -1,6 +1,6 @@
 # FloatShot
 
-A tiny, local-only floating screenshot utility for Android, built with Kotlin. Designed for Samsung Galaxy S24 Ultra (Android 14+) and compatible with Android 11+ (API 30+).
+A tiny Android floating screenshot utility built with Kotlin, with optional release update checks. Designed for Samsung Galaxy S24 Ultra (Android 14+) and compatible with Android 11+ (API 30+).
 
 ## What it does
 
@@ -10,7 +10,17 @@ A tiny, local-only floating screenshot utility for Android, built with Kotlin. D
 - Change the visible circle size (20–44dp) and opacity (8–70%).
 - Saves lossless PNG images in **Pictures/FloatShot**, visible in Gallery.
 - English and Arabic system-language UI; RTL layout support.
-- No ads, accounts, trackers, analytics, network calls, root, or broad storage permission.
+- No ads, accounts, trackers, analytics, root, or broad storage permission. Screenshot processing stays offline; update checks access only public GitHub release metadata over HTTPS.
+
+## App updates
+
+- Open FloatShot to check automatically (once every 24 hours by default), or tap **Check for updates** anytime.
+- Disable automatic update checks in Settings if preferred.
+- The checker queries the official GitHub releases/latest API over HTTPS and compares the published version tag (such as v0.3.0) with the installed version.
+- If a newer stable release is available, the app offers a link to its official GitHub Release page. No silent downloads or installs.
+- Publish a non-draft, non-prerelease GitHub Release with a valid version tag and a signed APK. A commit or workflow artifact alone does not count as a published update.
+- For an APK to upgrade an existing installation, use the same signing key and increase versionCode. Temporary debug signing keys on different machines are unsuitable for reliable in-place upgrades.
+- No screen content is sent during the check and a network error cannot block screenshots.
 
 ## Long screenshot quality and limits
 
@@ -54,7 +64,7 @@ For real-device validation, use [Galaxy S24 Ultra QA matrix](docs/GALAXY_S24_ULT
 
 - The accessibility service declares `canTakeScreenshot`, `canPerformGestures`, and `canRetrieveWindowContent`. The third capability lets it determine *the rectangle and package name of the visible scrollable view* so the stitched image does not repeat app bars. The code never calls node text APIs (`getText`, `getContentDescription`) to inspect third-party app content.
 - The button uses `TYPE_ACCESSIBILITY_OVERLAY`; no `SYSTEM_ALERT_WINDOW` approval needed.
-- Images are processed locally, and the app has **no INTERNET permission**. No content is logged or uploaded.
+- Images are processed locally. The app uses INTERNET only to read public GitHub release metadata when update checking is enabled or manually requested. Screenshot data is never uploaded.
 - The service is controlled entirely by the Android Accessibility settings. Disabling it removes the floating bubble.
 - Android 14+ window capture and Android 11+ display capture are implemented with documented platform APIs.
 
@@ -62,7 +72,7 @@ See official documentation: [AccessibilityService API](https://developer.android
 
 ## Tests
 
-`OverlapMatcherTest` includes exact pixel displacement, final-page movement, stationary state, blank views, ambiguous repeated cards, unrelated navigation, and a full-header/footer seam verification. `StreamingPngTest` decodes the PNG using ImageIO and verifies dimensions and RGBA pixels.
+`VersionComparatorTest` verifies numeric and pre-release version comparison. `StreamingPngTest` validates PNG pixels through portable JVM APIs. `OverlapMatcherTest` includes exact pixel displacement, final-page movement, stationary state, blank views, ambiguous repeated cards, unrelated navigation, and a full-header/footer seam verification. `StreamingPngTest` decodes the PNG using ImageIO and verifies dimensions and RGBA pixels.
 
 Tests exercise the portable matching and encoding logic; **on-device integration tests on a Galaxy S24 Ultra are still necessary** for One UI, Chrome, Samsung Internet, WhatsApp and other apps. No claim of device certification or a verified installable APK is made here.
 
