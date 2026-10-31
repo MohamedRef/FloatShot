@@ -4,7 +4,7 @@ Kotlin Android floating screenshot utility, designed for Samsung Galaxy S24 Ultr
 
 ## Current repository status
 
-The repository has been initialized. The complete application source has **not** yet been committed here; the Kotlin source ZIP was provided in the ChatGPT conversation. An Android APK build has **not** been verified.
+The repository has been initialized. The complete application source has **not** yet been committed here. An Android APK build has **not** been verified.
 
 ## Intended features
 
@@ -15,6 +15,6 @@ The repository has been initialized. The complete application source has **not**
 
 ## Source import
 
-Extract the `FloatShot-Kotlin-source.zip` archive delivered in the conversation and commit its contents to this repository. GitHub Actions in that archive runs `:app:testDebugUnitTest` and `:app:assembleDebug` and uploads a debug APK artifact.
+Extract the `FloatShot-Kotlin-source.zip` archive and commit its contents to this repository. GitHub Actions in that archive runs `:app:testDebugUnitTest` and `:app:assembleDebug` and uploads a debug APK artifact.
 
 The screenshot stitching algorithm has passed 10 standalone JVM tests, but real-device validation remains necessary.
