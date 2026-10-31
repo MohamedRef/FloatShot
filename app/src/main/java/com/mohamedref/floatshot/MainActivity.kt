@@ -2,6 +2,7 @@ package com.mohamedref.floatshot
 
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
@@ -39,9 +40,7 @@ class MainActivity : Activity() {
         status = findViewById(R.id.status_text)
         statusDot = findViewById(R.id.status_dot)
         settingsButton = findViewById(R.id.enable_button)
-        settingsButton.setOnClickListener {
-            startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
-        }
+        settingsButton.setOnClickListener { openAccessibilitySettings() }
 
         val opacitySeek = findViewById<SeekBar>(R.id.opacity_seek)
         val sizeSeek = findViewById<SeekBar>(R.id.size_seek)
@@ -159,6 +158,29 @@ class MainActivity : Activity() {
                 }
             }
         }
+    }
+
+    /**
+     * Explain the broad system capability before asking Android to grant accessibility access.
+     * Consent here never grants the permission: only the user can enable it in Settings.
+     */
+    private fun openAccessibilitySettings() {
+        val accepted = SettingsStore.prefs(this)
+            .getBoolean(SettingsStore.ACCESSIBILITY_DISCLOSURE_ACCEPTED, false)
+        if (accepted) {
+            startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+            return
+        }
+        AlertDialog.Builder(this)
+            .setTitle(R.string.accessibility_disclosure_title)
+            .setMessage(R.string.accessibility_disclosure_body)
+            .setNegativeButton(R.string.accessibility_disclosure_cancel, null)
+            .setPositiveButton(R.string.accessibility_disclosure_continue) { _, _ ->
+                SettingsStore.prefs(this).edit()
+                    .putBoolean(SettingsStore.ACCESSIBILITY_DISCLOSURE_ACCEPTED, true).apply()
+                startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+            }
+            .show()
     }
 
     override fun onDestroy() {

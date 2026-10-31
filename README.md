@@ -17,7 +17,7 @@ A tiny Android floating screenshot utility built with Kotlin, with optional rele
 - Open FloatShot to check automatically (once every 24 hours by default), or tap **Check for updates** anytime.
 - Disable automatic update checks in Settings if preferred.
 - The checker queries the official GitHub releases/latest API over HTTPS and compares the published version tag (such as v0.3.0) with the installed version.
-- If a newer stable release is available, the app offers a link to its official GitHub Release page. No silent downloads or installs.
+- If a newer stable release is available, the app offers a link to its official GitHub Release page. Preview pre-releases are deliberately excluded from automatic update checks. No silent downloads or installs.
 - Publish a non-draft, non-prerelease GitHub Release with a valid version tag and a signed APK. A commit or workflow artifact alone does not count as a published update.
 - For an APK to upgrade an existing installation, use the same signing key and increase versionCode. Temporary debug signing keys on different machines are unsuitable for reliable in-place upgrades.
 - No screen content is sent during the check and a network error cannot block screenshots.
@@ -45,18 +45,23 @@ gradle :app:testDebugUnitTest
 gradle :app:assembleDebug
 ```
 
-The GitHub Actions workflow sets up Gradle and SDK 35 and automatically produces a downloadable debug APK under **Actions → Android build and tests → Artifacts**. This source archive does not include an `android.jar`, Gradle wrapper JAR or a prebuilt APK; building requires Android tools and network access to download Gradle dependencies. Run `gradle wrapper --gradle-version 8.11.1` once if you want a project-local wrapper.
+GitHub Actions builds and tests the app, providing a debug APK under **Actions → Android build and tests → Artifacts**. The preview publishing workflow additionally creates a GitHub pre-release with a directly downloadable APK. This source archive does not include an `android.jar`, Gradle wrapper JAR or a prebuilt APK; building requires Android tools and network access to download Gradle dependencies. Run `gradle wrapper --gradle-version 8.11.1` once if you want a project-local wrapper.
 
-### Install on Galaxy S24 Ultra
+### Preview release: Galaxy S24 Ultra
 
-1. Build the debug APK or download the GitHub Actions build artifact after publishing this project.
-2. Install the APK (allow installing from that source when Android prompts).
-3. Open FloatShot and select **Set up floating button**.
-   If Android marks the self-built APK's accessibility permission as restricted, inspect the source first and decide whether to trust it. Android's official flow for trusted apps is **Settings → Apps → FloatShot → ⋮ → Allow restricted settings** (the location varies by One UI version). See [Android Help](https://support.google.com/android/answer/12623953). This grants powerful access; do not do this for unknown APKs.
-4. Under Android **Settings → Accessibility → Installed apps**, enable **FloatShot floating capture**. On some One UI versions, the menu wording is slightly different. Android shows a broad accessibility-access disclosure; this permission is needed to take screenshots and automate swipes.
-5. Leave FloatShot. Tap / hold / drag the bubble in any supported app.
+The newest preview build is published as a GitHub **pre-release**, with a directly downloadable APK instead of an Actions artifact ZIP:
 
-If One UI suspends the service, set FloatShot battery usage to **Unrestricted** in app settings. This is optional and is not done automatically.
+- [FloatShot Preview 0.2.0 (Preview 1)](https://github.com/MohamedRef/FloatShot/releases/tag/v0.2.0-preview.1)
+- Download the APK from the **Assets** section on the release page and verify its checksum against `SHA256SUMS`.
+- The preview is a debug-signed test build, not a verified production APK. Its signing key may not be stable between builds and is not suitable for reliable in-place updates.
+
+### Installation and Play Protect
+
+FloatShot uses an accessibility service with sensitive screen and gesture capabilities. **Google Play Protect may block direct APK installation**, including APKs distributed through GitHub Releases. Moving an APK to Releases is not a workaround or a security endorsement. Do not disable Play Protect to bypass a warning.
+
+For developer testing on your own Galaxy, use Android Studio or official ADB Platform Tools from a trusted computer. If the operating system still blocks installation, stop instead of disabling protection. For a public rollout, follow the relevant Google Play testing and Accessibility API policy processes. See [Installation and security](docs/INSTALLATION_SECURITY.md).
+
+After successful installation, FloatShot provides a clear, voluntary accessibility disclosure before opening Android Accessibility settings. The user must enable the service themselves. Disable the service at any time to remove its floating button.
 
 For real-device validation, use [Galaxy S24 Ultra QA matrix](docs/GALAXY_S24_ULTRA_QA.md).
 
@@ -72,7 +77,7 @@ See official documentation: [AccessibilityService API](https://developer.android
 
 ## Tests
 
-`VersionComparatorTest` verifies numeric and pre-release version comparison. `StreamingPngTest` validates PNG pixels through portable JVM APIs. `OverlapMatcherTest` includes exact pixel displacement, final-page movement, stationary state, blank views, ambiguous repeated cards, unrelated navigation, and a full-header/footer seam verification. `StreamingPngTest` decodes the PNG using ImageIO and verifies dimensions and RGBA pixels.
+`VersionComparatorTest` verifies numeric and pre-release version comparison. `StreamingPngTest` validates PNG pixels through portable JVM APIs. `OverlapMatcherTest` includes exact pixel displacement, final-page movement, stationary state, blank views, ambiguous repeated cards, unrelated navigation, and a full-header/footer seam verification. `StreamingPngTest` verifies PNG dimensions, checksums, lossless RGBA pixel output and row decoding using portable JVM APIs.
 
 Tests exercise the portable matching and encoding logic; **on-device integration tests on a Galaxy S24 Ultra are still necessary** for One UI, Chrome, Samsung Internet, WhatsApp and other apps. No claim of device certification or a verified installable APK is made here.
 

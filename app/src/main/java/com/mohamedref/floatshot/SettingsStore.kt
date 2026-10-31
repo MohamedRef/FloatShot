@@ -9,6 +9,7 @@ internal object SettingsStore {
     const val DIAMETER = "diameter_dp"
     const val SIDE = "bubble_side" // 0 = left, 1 = right
     const val VERTICAL = "vertical_fraction"
+    const val ACCESSIBILITY_DISCLOSURE_ACCEPTED = "accessibility_disclosure_accepted"
     const val AUTO_CHECK_UPDATES = "auto_check_updates"
     const val LAST_AUTO_UPDATE_CHECK = "last_auto_update_check"
 
