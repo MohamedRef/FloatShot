@@ -47,4 +47,8 @@
     <string name="updates_no_browser">مفيش متصفح متاح لفتح التحديث.</string>
     <string name="updates_open_release">افتح صفحة التحديث على GitHub</string>
     <string name="updates_privacy">الفحص بيستخدم GitHub Releases عبر HTTPS فقط، وبحد أقصى مرة كل ٢٤ ساعة عند فتح التطبيق. تقدر توقف الفحص التلقائي في أي وقت، والتثبيت باختيارك.</string>
+    <string name="accessibility_disclosure_title">قبل تفعيل صلاحية تصوير الشاشة</string>
+    <string name="accessibility_disclosure_body">أندرويد بيدي خدمة إمكانية الوصول صلاحيات حساسة تتيح فحص بنية شاشات التطبيقات وتصوير الشاشة وتنفيذ حركات اللمس. FloatShot بيستخدم الصلاحية لتحديد منطقة التمرير وتصوير الشاشة فقط لما تضغط على زر التصوير العائم. التطبيق مش بيخزّن نصوص التطبيقات أو يسجّل حركاتك أو يرفع محتوى الشاشة. الصور بتفضل على موبايلك، وتقدر توقف الخدمة في أي وقت من إعدادات إمكانية الوصول. لو فاهم الصلاحيات دي وموافق، افتح إعدادات أندرويد وقرر إذا كنت هتفعّل الخدمة.</string>
+    <string name="accessibility_disclosure_cancel">مش دلوقتي</string>
+    <string name="accessibility_disclosure_continue">فهمت؛ افتح الإعدادات</string>
 </resources>

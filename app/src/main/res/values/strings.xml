@@ -47,4 +47,8 @@
     <string name="updates_no_browser">No browser is available to open the update.</string>
     <string name="updates_open_release">View update on GitHub</string>
     <string name="updates_privacy">Checks GitHub Releases over HTTPS only, at most once every 24 hours while opening the app. Turn off automatic checks anytime. Installing updates is always your choice.</string>
+    <string name="accessibility_disclosure_title">Before enabling screen capture access</string>
+    <string name="accessibility_disclosure_body">Android gives an enabled accessibility service sensitive access to view structures, capture the screen and perform touch gestures in other apps. FloatShot uses this access to find scrolling regions and take screenshots only when you press the floating capture button. It does not read screen text for storage, log your actions or upload screen content. Screen captures remain on your device. You can turn off the service at any time in Accessibility settings. If you understand and want these functions, continue to Android settings to decide whether to enable it.</string>
+    <string name="accessibility_disclosure_cancel">Not now</string>
+    <string name="accessibility_disclosure_continue">I understand; open settings</string>
 </resources>
