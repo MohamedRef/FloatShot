@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#F6F7FA</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="ink">#172135</color>
+    <color name="muted">#647084</color>
+    <color name="accent">#5262D8</color>
+    <color name="accent_soft">#EBEDFF</color>
+    <color name="outline">#E4E8F1</color>
+    <color name="white">#FFFFFF</color>
+    <color name="bubble_fill">#26346A</color>
+</resources>

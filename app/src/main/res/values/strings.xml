@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FloatShot</string>
+    <string name="service_name">FloatShot floating capture</string>
+    <string name="service_description">Show a small floating screenshot button. A tap captures the screen; a long press scrolls and combines screenshots. Only scroll-area geometry is inspected; no app text is stored or sent.</string>
+    <string name="eyebrow">FLOATING SCREENSHOTS</string>
+    <string name="headline">Capture in a tap.</string>
+    <string name="subtitle">A tiny, almost invisible button that stays on the edge of your screen.</string>
+    <string name="status_label">Accessibility service</string>
+    <string name="status_on">Enabled · floating bubble is active</string>
+    <string name="status_off">Not enabled yet</string>
+    <string name="open_accessibility">Set up floating button</string>
+    <string name="manage_accessibility">Manage accessibility settings</string>
+    <string name="how_title">Two simple gestures</string>
+    <string name="tap_title">Tap</string>
+    <string name="tap_detail">Capture the screen</string>
+    <string name="hold_title">Long press</string>
+    <string name="hold_detail">Scroll and stitch a long screenshot</string>
+    <string name="drag_title">Drag</string>
+    <string name="drag_detail">Move the bubble to either edge</string>
+    <string name="settings_title">Make it discreet</string>
+    <string name="opacity_label">Bubble opacity</string>
+    <string name="size_label">Bubble diameter</string>
+    <string name="privacy_note">On-device only · No internet permission · No tracking. For accurate scrolling, Android allows FloatShot to inspect scrollable view bounds, but no screen text is read or saved. Pictures go to Pictures/FloatShot.</string>
+    <string name="limitations_note">Long screenshots work best on vertically scrolling pages. Protected screens and certain apps cannot be captured.</string>
+    <string name="long_alignment_failed">The scrolling frames didn’t match safely. No broken image was saved.</string>
+    <string name="long_moving_content">The page kept moving or animating. Try pausing animations before capturing.</string>
+    <string name="long_partial_saved">Saved a verified portion (long-image size limit reached)</string>
+    <string name="saved_image">Saved to Pictures/FloatShot</string>
+    <string name="capture_failed">Couldn’t capture this screen</string>
+    <string name="protected_screen">This app blocks screenshots</string>
+    <string name="long_not_available">No scroll detected — saved a regular screenshot</string>
+    <string name="busy">Capture already in progress</string>
+    <string name="bubble_description">FloatShot screenshot button: tap for screenshot, hold for long screenshot, drag to move</string>
+</resources>

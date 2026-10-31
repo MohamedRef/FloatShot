@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FloatShot</string>
+    <string name="service_name">زر تصوير FloatShot العائم</string>
+    <string name="service_description">زر عائم صغير لتصوير الشاشة. ضغطة للتصوير العادي وضغطة مطوّلة لتصوير أجزاء أثناء التمرير ودمجها. التطبيق يفحص حدود العناصر القابلة للتمرير فقط؛ لا يخزن نصوص التطبيقات ولا يرسل صورًا.</string>
+    <string name="eyebrow">تصوير شاشة عائم</string>
+    <string name="headline">لقطة بضغطة واحدة.</string>
+    <string name="subtitle">زر صغير شبه شفاف على طرف الشاشة، من غير ما يضايقك.</string>
+    <string name="status_label">خدمة إمكانية الوصول</string>
+    <string name="status_on">مفعّلة · الزر العائم شغال</string>
+    <string name="status_off">لسه محتاجة تفعيل</string>
+    <string name="open_accessibility">فعّل الزر العائم</string>
+    <string name="manage_accessibility">إعدادات إمكانية الوصول</string>
+    <string name="how_title">٣ حركات بسيطة</string>
+    <string name="tap_title">ضغطة واحدة</string>
+    <string name="tap_detail">تصوير الشاشة العادي</string>
+    <string name="hold_title">ضغطة مطوّلة</string>
+    <string name="hold_detail">تمرير وتصوير لقطة طويلة</string>
+    <string name="drag_title">سحب الزر</string>
+    <string name="drag_detail">حرّكه لأي طرف من الشاشة</string>
+    <string name="settings_title">خليه شبه مختفي</string>
+    <string name="opacity_label">شفافية الزر</string>
+    <string name="size_label">حجم الزر</string>
+    <string name="privacy_note">كل حاجة على الموبايل · من غير إنترنت أو تتبّع. التطبيق يفحص حدود منطقة التمرير فقط من غير حفظ النصوص. الصور في Pictures/FloatShot.</string>
+    <string name="limitations_note">التصوير المطوّل أنسب للصفحات اللي بتتحرك لفوق وتحت. بعض التطبيقات والشاشات المحمية مش هتسمح بالتصوير.</string>
+    <string name="long_alignment_failed">اللقطات مش متطابقة بثقة، فمش هنحفظ صورة طويلة فيها عيوب.</string>
+    <string name="long_moving_content">الصفحة لسه بتتحرك أو فيها أنيميشن. جرّب تاني بعد ما تثبت.</string>
+    <string name="long_partial_saved">اتحفظ الجزء اللي اتأكدنا منه، ووصلنا للحد الأقصى لطول الصورة.</string>
+    <string name="saved_image">اتحفظت في Pictures/FloatShot</string>
+    <string name="capture_failed">مقدرناش نصوّر الشاشة دي</string>
+    <string name="protected_screen">التطبيق ده مانع تصوير الشاشة</string>
+    <string name="long_not_available">الصفحة متحركتش — اتحفظت لقطة عادية</string>
+    <string name="busy">في تصوير شغّال بالفعل</string>
+    <string name="bubble_description">زر FloatShot: ضغطة للتصوير، ضغطة مطوّلة لتصوير طويل، اسحب عشان تحرّكه</string>
+</resources>
